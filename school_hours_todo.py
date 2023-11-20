@@ -24,5 +24,7 @@ if __name__=="__main__":
         m %= 60
         output = f"week {weeks[w][0].strftime('%d/%m')}: {h} hours {m} minutes"
         if h < 35:
-            output += f" <--> {int(((35 - h)*60+m)/60)}h {(35*60 - h*60+m)%60}m left"
+            output += f" <--> {int(((35 - h) * 60 - m) / 60)}h {(35 * 60 - h * 60 + m) % 60}m left"
+        else:
+            output += f" <--> {abs(int(((35 - h) * 60 - m) / 60))}h {(35 * 60 - h * 60 + m) % 60}m extra"
         print(output)
